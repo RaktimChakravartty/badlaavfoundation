@@ -12,4 +12,22 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Force-enable the Nitro deploy plugin on every build. Outside a Lovable sandbox the
+  // wrapper otherwise skips Nitro entirely and emits a client-only SPA, which is not a
+  // deployable TanStack Start app. The wrapper's own default preset is cloudflare-module;
+  // we default to "vercel" so a standard Vercel import builds Build Output API v3 output
+  // in .vercel/output. NITRO_PRESET overrides this for other targets (do not hardcode bun).
+  nitro: {
+    preset: process.env.NITRO_PRESET ?? "vercel",
+    // The wrapper forces output.serverDir to "dist/server", which breaks the vercel
+    // preset's required Build Output API v3 layout (.vercel/output/...). We restore the
+    // canonical locations so a standard Vercel import / `vercel --prebuilt` works. The
+    // function dir leaf must stay "__server.func" to match the route dest "/__server"
+    // the preset writes into config.json.
+    output: {
+      dir: ".vercel/output",
+      publicDir: ".vercel/output/static",
+      serverDir: ".vercel/output/functions/__server.func",
+    },
+  },
 });
