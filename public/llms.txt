@@ -1,0 +1,22 @@
+# Badlaav Foundation
+
+> Badlaav Foundation is a registered nonprofit trust in Dehradun, Uttarakhand, working since 2019 inside government Child Care Institutions to help children in care live with dignity and become self-reliant.
+
+## Pages
+
+- [Home](/): What Badlaav Foundation does and how to support the work.
+- [About](/about): Our story, mission, and registrations since 2019.
+- [Our Model](/our-model): How the programme works inside Child Care Institutions.
+- [Care](/care): The day-to-day care and support children receive.
+- [Dagdya](/dagdya): The Dagdya programme and its focus.
+- [Camp Infinity](/camp-infinity): Annual outing and the leadership camp at Tilwari.
+- [Stories](/stories): Stories from the children and the work.
+- [Support](/support): Ways to donate, give CSR, and partner with us.
+- [Get Involved](/get-involved): Volunteer and partnership opportunities.
+- [Certificate](/certificate): Our registrations and compliance certificates.
+
+## Optional
+
+- [Privacy](/privacy): How we handle personal data, aligned with India's DPDP Act.
+- [Refund Policy](/refund): How donations and genuine transaction errors are handled.
+- [Terms](/terms): Terms governing use of this site and donations.

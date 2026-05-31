@@ -1,0 +1,523 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Sans+Devanagari:wght@400;500;600&display=swap");
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --font-display: "Rajdhani", system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-deva: "IBM Plex Sans Devanagari", system-ui, sans-serif;
+  --color-ink: var(--ink);
+  --color-sky: var(--sky);
+  --color-teal: var(--teal);
+  --color-lime: var(--lime);
+  --color-saffron: var(--saffron);
+  --color-terra: var(--terra);
+  --color-plum: var(--plum);
+  --color-cream: var(--cream);
+  --color-cream2: var(--cream2);
+  --color-stone: var(--stone);
+  --color-wg: var(--wg);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Badlaav brand palette */
+  --ink: #1B2951;
+  --sky: #2E8DD8;
+  --teal: #0DAFA4;
+  --lime: #8DC640;
+  --saffron: #E8A33D;
+  --terra: #D17456;
+  --plum: #6B4A7E;
+  --cream: #F7F3EB;
+  --cream2: #FAF7F0;
+  --stone: #E5E0D5;
+  --wg: #6B6B66;
+  --gradient-brand: linear-gradient(to right, #1B2951, #2E8DD8, #0DAFA4, #8DC640, #E8A33D, #D17456, #6B4A7E);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  /* Display headings are never italic. Emphasis is carried by weight and
+     colour only, per brand direction. */
+  h1, h2, h3, h4 {
+    font-style: normal;
+  }
+
+  h1 {
+    font-size: clamp(32px, 5vw, 64px);
+  }
+
+  h2 {
+    font-size: clamp(26px, 3.6vw, 44px);
+  }
+
+  h3 {
+    font-size: clamp(20px, 2.4vw, 28px);
+  }
+
+  ::selection {
+    background: var(--lime);
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* Eyebrow label: 32px rule + uppercase tracked label */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: currentColor;
+  }
+  /* Horizontal lead rule removed from eyebrows per brand direction. An
+     optional inline icon may sit before the label instead. */
+  .eyebrow > svg {
+    flex-shrink: 0;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 8px;
+    padding: 15px 30px;
+    transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    cursor: pointer;
+    line-height: 1;
+    position: relative;
+    isolation: isolate;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 3px;
+  }
+  /* Solid CTA: lime by default, a full-spectrum gradient that flows on hover.
+     The gradient starts on lime so the resting state still reads lime. */
+  .btn-lime {
+    color: #fff;
+    background-color: var(--lime);
+    background-image: linear-gradient(
+      115deg,
+      var(--lime) 0%,
+      var(--teal) 22%,
+      var(--sky) 40%,
+      var(--saffron) 60%,
+      var(--terra) 78%,
+      var(--lime) 100%
+    );
+    background-size: 240% 240%;
+    background-position: 0% 50%;
+  }
+  .btn-lime:hover {
+    animation: gradient-flow 4.5s ease infinite;
+  }
+  /* Outline CTA: a flowing gradient border painted as a 1.5px masked ring.
+     A faint stone border holds the resting state; the gradient ring fades in
+     and animates on hover. */
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--stone);
+  }
+  .btn-outline::before,
+  .btn-ghost::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(
+      115deg,
+      var(--sky),
+      var(--teal),
+      var(--lime),
+      var(--saffron),
+      var(--terra),
+      var(--plum),
+      var(--sky)
+    );
+    background-size: 240% 240%;
+    background-position: 0% 50%;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .btn-outline:hover {
+    border-color: transparent;
+  }
+  .btn-outline:hover::before,
+  .btn-ghost:hover::before {
+    opacity: 1;
+    animation: gradient-flow 4.5s ease infinite;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(247, 243, 235, 0.35);
+  }
+  .btn-ghost:hover {
+    border-color: transparent;
+    background: rgba(247, 243, 235, 0.08);
+  }
+
+  /* Seamless flowing-gradient keyframe, shared by CTAs and the flow ring. */
+  @keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Glowing, continuously-flowing gradient ring for feature panels such as the
+     Express interest card. Stronger and animated, with a soft outer glow. */
+  .flow-ring {
+    position: relative;
+    isolation: isolate;
+    box-shadow: 0 18px 50px -24px color-mix(in oklab, var(--teal) 55%, transparent);
+  }
+  .flow-ring::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(
+      115deg,
+      var(--sky),
+      var(--teal),
+      var(--lime),
+      var(--saffron),
+      var(--terra),
+      var(--plum),
+      var(--sky)
+    );
+    background-size: 240% 240%;
+    background-position: 0% 50%;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.85;
+    animation: gradient-flow 7s ease infinite;
+    pointer-events: none;
+  }
+
+  /* Subtle full-spectrum gradient outline. Painted as a 1px masked border so
+     the fill stays untouched. Used on CTAs, feature cards and media frames. */
+  .gradient-ring {
+    position: relative;
+    isolation: isolate;
+  }
+  .gradient-ring::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-brand);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.32;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .gradient-ring:hover::after {
+    opacity: 0.7;
+  }
+
+  /* Grid texture overlay for full-bleed photos */
+  .grid-texture {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  /* Field-report caption: small uppercase tracked label, no rule line. */
+  .figcap {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--wg);
+    padding-top: 8px;
+  }
+
+  /* Real photographs shown in natural colour with only a very subtle warm
+     grade. No blue duotone: the site must read cream and warm. */
+  .duotone {
+    position: relative;
+    background-color: var(--cream2);
+    overflow: hidden;
+  }
+  .duotone > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.02) contrast(1.01);
+    transition: transform 0.5s ease;
+  }
+  .duotone:hover > img {
+    transform: scale(1.03);
+  }
+  /* On hover, a soft wash of the full palette glides over the photograph. */
+  .duotone::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--gradient-brand);
+    mix-blend-mode: overlay;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+  }
+  .duotone:hover::before {
+    opacity: 0.3;
+  }
+  .duotone::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      transparent 60%,
+      color-mix(in oklab, var(--ink) 14%, transparent) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Evidence card: hairline border on cream, large Rajdhani figure */
+  .evidence {
+    border: 1px solid var(--stone);
+    border-radius: 12px;
+    background: var(--cream2);
+    padding: 28px 24px;
+  }
+  .evidence-figure {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-size: clamp(40px, 5vw, 60px);
+  }
+
+  /* Oversized Rajdhani section numeral */
+  .section-num {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--stone);
+    font-size: clamp(56px, 9vw, 120px);
+  }
+
+  /* Scroll reveal: fade + rise */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .btn:hover { transform: none; }
+  .reveal { opacity: 1; transform: none; }
+  .duotone:hover > img { transform: none; }
+  .duotone:hover::before { opacity: 0; }
+  .btn-lime:hover,
+  .btn-outline:hover::before,
+  .btn-ghost:hover::before,
+  .flow-ring::after { animation: none !important; }
+  .btn-outline:hover::before,
+  .btn-ghost:hover::before { opacity: 1; }
+}
