@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Reveal } from "@/components/layout/Reveal";
 
 type PhotoFigureProps = {
@@ -7,6 +8,7 @@ type PhotoFigureProps = {
   className?: string;
   aspect?: string;
   priority?: boolean;
+  tag?: ReactNode;
 };
 
 // Duotone (ink over cream) real photograph with a field-report caption:
@@ -19,10 +21,12 @@ export function PhotoFigure({
   className,
   aspect = "4 / 3",
   priority = false,
+  tag,
 }: PhotoFigureProps) {
   return (
     <Reveal as="figure" className={className}>
       <div className="duotone w-full rounded-lg" style={{ aspectRatio: aspect }}>
+        {tag ? <span className="media-tag">{tag}</span> : null}
         {src ? (
           <img
             src={src}

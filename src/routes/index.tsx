@@ -16,6 +16,7 @@ import {
   BookOpen,
   Repeat,
   Sparkles,
+  Camera,
 } from "lucide-react";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { SpectrumSpine } from "@/components/layout/SpectrumSpine";
@@ -100,11 +101,20 @@ function Index() {
     <>
       {/* 01 Hero */}
       <section id="hero" style={{ backgroundColor: "var(--cream2)" }}>
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 pt-10 lg:px-8 lg:pt-12">
+          <Reveal className="dossier-meta">
+            <span className="dossier-ref">
+              <span className="dossier-dot" style={{ backgroundColor: "var(--teal)" }} />
+              Badlaav Foundation / Field Dossier
+            </span>
+            <span className="dossier-ref">Dehradun, Uttarakhand / Est. 2019</span>
+          </Reveal>
+        </div>
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 pt-9 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-10">
           <Reveal className="lg:col-span-7">
             <span className="eyebrow" style={{ color: "var(--teal)" }}>
               <Sparkles className="h-4 w-4" strokeWidth={1.6} />
-              Badlaav Foundation / Since 2019
+              Inside government child care since 2019
             </span>
             <h1 className="mt-5">
               Not a programme.
@@ -124,6 +134,28 @@ function Index() {
                 Support our work
               </Link>
             </div>
+
+            {/* Proof leads. Three documented results, set as a case-file strip. */}
+            <dl
+              className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-xl border sm:grid-cols-3"
+              style={{ borderColor: "var(--stone)", backgroundColor: "var(--stone)" }}
+            >
+              {[
+                { f: "250+", l: "children reached" },
+                { f: "100%", l: "first Class 10 batch passed" },
+                { f: "4 of 7", l: "cleared the written exam" },
+              ].map((s) => (
+                <div key={s.l} className="p-5" style={{ backgroundColor: "var(--cream2)" }}>
+                  <dt className="stat-figure">{s.f}</dt>
+                  <dd
+                    className="mt-1 text-xs uppercase tracking-widest"
+                    style={{ color: "var(--wg)" }}
+                  >
+                    {s.l}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
 
           <PhotoFigure
@@ -133,6 +165,12 @@ function Index() {
             caption="FIG. 01 / CHILDREN LEADING A SESSION, DEHRADUN"
             aspect="4 / 5"
             priority
+            tag={
+              <>
+                <Camera className="h-3.5 w-3.5" strokeWidth={1.8} />
+                Children leading a session
+              </>
+            }
           />
         </div>
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
