@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Reveal } from "@/components/layout/Reveal";
 import { PhotoFigure } from "@/components/media/PhotoFigure";
 import { LeadForm } from "@/components/forms/LeadForm";
-import { PHOTOS } from "@/lib/images";
+import { PHOTOS, BRAND } from "@/lib/images";
 import { MISSION } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
@@ -69,18 +69,26 @@ function Page() {
 
       <section id="inside" style={{ backgroundColor: "var(--cream2)" }}>
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <SectionHeader
-            num="03"
-            eyebrow="The setting"
-            accent="var(--plum)"
-            title="What working inside government care means."
-          >
-            <p className="text-lg" style={{ color: "var(--wg)" }}>
-              We run our programmes inside government Child Care Institutions,
-              reaching 250+ children. We do not build parallel shelters. We
-              strengthen the system that already holds these children.
-            </p>
-          </SectionHeader>
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <SectionHeader
+              num="03"
+              eyebrow="The setting"
+              accent="var(--plum)"
+              title="What working inside government care means."
+            >
+              <p className="text-lg" style={{ color: "var(--wg)" }}>
+                We run our programmes inside government Child Care Institutions,
+                reaching 250+ children. We do not build parallel shelters. We
+                strengthen the system that already holds these children.
+              </p>
+            </SectionHeader>
+            <PhotoFigure
+              src={BRAND.valley}
+              alt="The Dehradun valley in Uttarakhand, where Badlaav Foundation works"
+              caption="VIEW / DEHRADUN VALLEY, UTTARAKHAND"
+              aspect="4 / 3"
+            />
+          </div>
         </div>
       </section>
 

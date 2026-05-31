@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://badlaavfoundation.lovable.app/sitemap.xml
+Sitemap: https://badlaavfoundation.vercel.app/sitemap.xml

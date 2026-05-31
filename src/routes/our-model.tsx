@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Users } from "lucide-react";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { PageHero } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/layout/Reveal";
@@ -128,18 +129,32 @@ function Page() {
 
       <section id="leaders" style={{ backgroundColor: "var(--cream)" }}>
         <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          <SectionHeader
-            num="04"
-            eyebrow="Who runs it"
-            accent="var(--plum)"
-            title="The children are the leaders, not the recipients."
-          >
-            <p className="text-lg" style={{ color: "var(--wg)" }}>
-              Children elect their own ministers, run their own clubs, and mentor
-              the children who come after them. Ownership is the point. A child
-              who leads a session learns more than a child who attends one.
-            </p>
-          </SectionHeader>
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <SectionHeader
+              num="04"
+              eyebrow="Who runs it"
+              accent="var(--plum)"
+              title="The children are the leaders, not the recipients."
+            >
+              <p className="text-lg" style={{ color: "var(--wg)" }}>
+                Children elect their own ministers, run their own clubs, and mentor
+                the children who come after them. Ownership is the point. A child
+                who leads a session learns more than a child who attends one.
+              </p>
+            </SectionHeader>
+            <PhotoFigure
+              src={PHOTOS.field6}
+              alt="Children leading an activity for younger children at the home"
+              caption="FIG. 02 / CHILDREN LEADING"
+              aspect="4 / 3"
+              tag={
+                <>
+                  <Users className="h-3.5 w-3.5" strokeWidth={1.8} />
+                  Led by children
+                </>
+              }
+            />
+          </div>
         </div>
       </section>
 
