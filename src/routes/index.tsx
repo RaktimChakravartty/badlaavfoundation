@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "/" },
       { property: "og:image", content: PHOTOS.hero },
     ],
-    links: [{ rel: "canonical", href: "https://badlaavfoundation.lovable.app/" }],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });

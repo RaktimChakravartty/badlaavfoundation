@@ -10,7 +10,13 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import ogImage from "../assets/brand-flow.jpg";
+import { SITE_URL } from "../lib/site";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+
+// Absolute URL for social cards. Crawlers cannot resolve relative og:image paths,
+// so we prefix the build-hashed asset path with the production origin.
+const OG_IMAGE = `${SITE_URL}${ogImage}`;
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -114,8 +120,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "A system that helps children in care become self-reliant. Badlaav hum se hai.",
       },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b1978325-f7ef-4eff-9e52-19697c503256/id-preview-56733b50--d282be0f-ba3b-4ab5-a27a-2316528932f7.lovable.app-1780217377814.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b1978325-f7ef-4eff-9e52-19697c503256/id-preview-56733b50--d282be0f-ba3b-4ab5-a27a-2316528932f7.lovable.app-1780217377814.png" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
       {

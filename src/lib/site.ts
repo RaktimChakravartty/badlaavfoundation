@@ -2,6 +2,11 @@
 // Replace KETTO_URL with the live Ketto campaign link before publishing.
 export const KETTO_URL = "https://www.ketto.org/";
 
+// Production origin, no trailing slash. Used for absolute URLs that crawlers and
+// social scrapers cannot resolve relatively (OpenGraph/Twitter images, sitemap).
+// Canonical link tags stay relative so each page self-canonicalises to its host.
+export const SITE_URL = "https://badlaavfoundation.vercel.app";
+
 export const WHATSAPP_URL = "https://wa.me/918630668493";
 export const PHONE_DISPLAY = "+91 863 066 8493";
 

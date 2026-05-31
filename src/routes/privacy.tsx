@@ -18,9 +18,9 @@ export const Route = createFileRoute("/privacy")({
         content:
           "How Badlaav Foundation collects, uses and protects your personal data, in plain language and aligned with India's DPDP Act.",
       },
-      { property: "og:url", content: "https://badlaavfoundation.lovable.app/privacy" },
+      { property: "og:url", content: "/privacy" },
     ],
-    links: [{ rel: "canonical", href: "https://badlaavfoundation.lovable.app/privacy" }],
+    links: [{ rel: "canonical", href: "/privacy" }],
   }),
   component: Page,
 });
